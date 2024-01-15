@@ -7,18 +7,17 @@ namespace WebApi1Tests;
 
 public class Tests
 {
-    private Controller1 svc_controller;
+    private readonly Controller1 _svcController = new  ();
     
     [SetUp]
     public void Setup()
     {
-        svc_controller = new Controller1();
     }
 
     [Test]
     public void Test1()
     {
-        var result = svc_controller.Get();
+        var result = _svcController.Get();
         
         Assert.IsType<OkObjectResult>(result);
         var resultObject = (ObjectResult) result;
