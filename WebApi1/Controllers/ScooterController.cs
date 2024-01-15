@@ -4,12 +4,16 @@ namespace WebApi1.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class Controller1 : ControllerBase
+public class ScooterController : ControllerBase
 {
 
     [HttpGet(Name = "GetHello")]
     public IActionResult Get()
     {
-        return new OkObjectResult(@"Hello!");
+        var scooterCode = Guid.NewGuid();
+        
+        return new OkObjectResult(@scooterCode);
     }
+    
+    
 }

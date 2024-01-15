@@ -7,7 +7,7 @@ namespace WebApi1Tests;
 
 public class Tests
 {
-    private readonly Controller1 _svcController = new  ();
+    private readonly ScooterController _scooterController = new  ();
     
     [SetUp]
     public void Setup()
@@ -15,12 +15,13 @@ public class Tests
     }
 
     [Test]
-    public void Test1()
+    public void Test_Can_Get_A_Code_For_A_Scooter()
     {
-        var result = _svcController.Get();
+        var result = _scooterController.Get();
         
         Assert.IsType<OkObjectResult>(result);
         var resultObject = (ObjectResult) result;
-        resultObject.Value.Should().Be("Hello!");
+
+        Assert.IsType<Guid>(resultObject.Value);
     }
 }
